@@ -11,8 +11,8 @@ resources:
     type: Image
     configuration:
       registry: artifactory      # replace with your artifactory integration
-      sourceRepository: docker_local   # required if registry is Artifactory
-      imageName: batelt-docker.jfrog.io/docker/mydockerbase  # replace with your image path and name
+      sourceRepository: docker   # required if registry is Artifactory
+      imageName: batelt-docker.jfrog.io/mydockerbase  # replace with your image path and name
       imageTag: latest
       autoPull: true
 
@@ -25,7 +25,7 @@ pipelines:
           affinityGroup: dbp_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: batelt-docker.jfrog.io/docker/mydockerbase  # replace with your image path and name
+          dockerImageName: batelt-docker.jfrog.io/mydockerbase  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
@@ -36,7 +36,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: dbp_group
-          targetRepository: docker-local
+          targetRepository: docker
           integrations:
             - name: artifactory    # replace with your artifactory integration
           inputSteps:
