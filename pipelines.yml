@@ -2,7 +2,7 @@ resources:
   - name: dbp_repo
     type: GitRepo
     configuration:
-      gitProvider: jfrog_github_int   # replace with your integration
+      gitProvider: github   # replace with your integration
       path: batelt/jfrog-pipelines-docker-sample    # replace with your repository name
       branches:
         include: master
