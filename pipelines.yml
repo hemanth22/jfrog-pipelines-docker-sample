@@ -18,8 +18,6 @@ resources:
 
 pipelines:
   - name: pipeline_dbp
-    configuration:
-      nodePool: u18-static
     steps:
       - name: docker_build
         type: DockerBuild
